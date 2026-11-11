@@ -21,7 +21,7 @@
     if (navigator.clipboard && window.ClipboardItem) {
       navigator.clipboard.write([new ClipboardItem({
         'text/html': new Blob([html], {type: 'text/html'}),
-        'text/plain': new Blob(['Philip Liebenberg | Director | Zygentic | philip@zygentic.co.za | +27 82 967 5712 | www.zygentic.co.za'], {type: 'text/plain'})
+        'text/plain': new Blob([src.getAttribute('data-plain') || ''], {type: 'text/plain'})
       })]).then(done, fallback);
     } else { fallback(); }
     function fallback() {
